@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # fruits_hup
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# Fruits-App
+>>>>>>> 2b49bf8da42fc5a2dffb65933ff7b41fc9ee7d1e
