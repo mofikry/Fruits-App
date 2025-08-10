@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "191832958284",
+    "project_id": "fruits-hup-52490",
+    "storage_bucket": "fruits-hup-52490.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191832958284:android:7ddb3678b0febb8f6f5be9",
+        "android_client_info": {
+          "package_name": "com.example.fruits_hup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191832958284-a7kf87n6gdnpj3bdv7csf9invg98e408.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fruits_hup",
+            "certificate_hash": "4565d0fe9c779f66802a90bd7954318c0eecdb0b"
+          }
+        },
+        {
+          "client_id": "191832958284-h8m2nv02urb13kv37b54tbnu9mmm6fgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxCXI9vKPzXfhvJpRBQDF-DtjrR_qmmOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191832958284-h8m2nv02urb13kv37b54tbnu9mmm6fgv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191832958284-h032h6rvm66u1tk8md8cd6kr45t1usfp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.furitsHupDashbord"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191832958284:android:010c6966e847494a6f5be9",
+        "android_client_info": {
+          "package_name": "com.example.furits_hup_dashbord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191832958284-h8m2nv02urb13kv37b54tbnu9mmm6fgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxCXI9vKPzXfhvJpRBQDF-DtjrR_qmmOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191832958284-h8m2nv02urb13kv37b54tbnu9mmm6fgv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191832958284-h032h6rvm66u1tk8md8cd6kr45t1usfp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.furitsHupDashbord"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
