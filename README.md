@@ -33,12 +33,6 @@ This project is a fully functional **E-Commerce application** built with **Flutt
 
 ---
 
-## 📸 Screenshots
-
-*(You can add application images or GIFs here)*
-
----
-
 ## 📂 Project Structure
 
 lib/
