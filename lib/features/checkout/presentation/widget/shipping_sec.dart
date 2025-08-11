@@ -10,35 +10,43 @@ class ShippingSec extends StatefulWidget {
   State<ShippingSec> createState() => _ShippingSecState();
 }
 
-class _ShippingSecState extends State<ShippingSec> {
+class _ShippingSecState extends State<ShippingSec>
+    with AutomaticKeepAliveClientMixin {
   int seclectedIndex = -1;
   @override
   Widget build(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
     return Column(
       children: [
         const SizedBox(height: 33),
         ShippingItem(
           title: 'الدفع عند الاستلام',
           subtitle: 'التسليم من المكان',
-          price: ('${context.read<OrderEntity>().cartEntity.totalPrice()}40'),
+          price: (orderEntity.cartEntity.totalPrice() + 40).toString(),
           isSelected: seclectedIndex == 0,
           onTap: () {
             seclectedIndex = 0;
             setState(() {});
+            orderEntity.payWithCash = true;
           },
         ),
         const SizedBox(height: 8),
         ShippingItem(
           title: 'الدفع اونلاين',
           subtitle: 'يرجي تحديد طريقه الدفع',
-          price: context.read<OrderEntity>().cartEntity.totalPrice().toString(),
+          price: orderEntity.cartEntity.totalPrice().toString(),
           isSelected: seclectedIndex == 1,
           onTap: () {
             seclectedIndex = 1;
             setState(() {});
+            orderEntity.payWithCash = false;
           },
         )
       ],
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
