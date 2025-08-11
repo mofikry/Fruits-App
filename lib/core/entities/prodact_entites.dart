@@ -5,6 +5,7 @@ import 'package:fruit_hup/core/entities/review_entity.dart';
 class ProductEntity extends Equatable {
   final String name;
   final String description;
+
   final num code;
   final num price;
 

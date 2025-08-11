@@ -22,11 +22,11 @@ class CartViewBody extends StatelessWidget {
                       title: 'السلة',
                       showBackIcon: true,
                       showNotification: false),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  CartHeader(),
-                  SizedBox(
+                  const CartHeader(),
+                  const SizedBox(
                     height: 16,
                   ),
                 ],
@@ -35,7 +35,7 @@ class CartViewBody extends StatelessWidget {
             SliverToBoxAdapter(
               child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
                   ? const SizedBox()
-                  : Divider(
+                  : const Divider(
                       height: 22,
                       color: Color(0xffF1F1F5),
                     ),
@@ -46,7 +46,7 @@ class CartViewBody extends StatelessWidget {
             SliverToBoxAdapter(
               child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
                   ? const SizedBox()
-                  : Divider(
+                  : const Divider(
                       height: 22,
                       color: Color(0xffF1F1F5),
                     ),

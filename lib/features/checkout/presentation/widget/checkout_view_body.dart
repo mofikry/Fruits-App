@@ -1,5 +1,9 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hup/core/helper_function/build_error_bar.dart';
 import 'package:fruit_hup/core/widget/custom_button.dart';
+import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
 import 'package:fruit_hup/features/checkout/presentation/widget/check_out_steps.dart';
 import 'package:fruit_hup/features/checkout/presentation/widget/check_out_steps_page_view.dart';
 
@@ -48,14 +52,23 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           ),
           CustomButton(
               oppressed: () {
-                pageController.animateToPage(
-                  currentPageIndex + 1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.linear,
-                );
+                if (context.read<OrderEntity>().payWithCash != null) {
+                  pageController.animateToPage(
+                    currentPageIndex + 1,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.linear,
+                  );
+                } else {
+                  buildCustomSnackBar(
+                    context,
+                    title: 'تحذير ⚠️',
+                    message: 'يرجى تحديد طريقة الدفع',
+                    contentType: ContentType.warning,
+                  );
+                }
               },
               text: getNextCurrentIndex(currentPageIndex)),
-          SizedBox(
+          const SizedBox(
             height: 34,
           )
         ],

@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hup/core/helper_function/build_error_bar.dart';
@@ -17,10 +18,20 @@ class MainViewBodyBloc extends StatelessWidget {
     return BlocListener<CartCubit, CartState>(
         listener: (context, state) {
           if (state is CartItemAdded) {
-            buildErrorBar(context, 'تم اضافة المنتج بنجاح');
+            buildCustomSnackBar(
+              context,
+              title: 'نجاح 🎉',
+              message: 'تمت العملية بنجاح',
+              contentType: ContentType.success,
+            );
           }
           if (state is CartItemRemoved) {
-            buildErrorBar(context, 'تم حذف المنتج بنجاح');
+            buildCustomSnackBar(
+              context,
+              message: 'تم حذف المنتج بنجاح',
+              title: 'نجاح 🎉',
+              contentType: ContentType.success,
+            );
           }
         },
         child: MainViewBody(
