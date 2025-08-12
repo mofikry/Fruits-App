@@ -25,7 +25,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.name =
+                  context.read<OrderEntity>().shippingAddressEntity.name =
                       value!;
                 },
                 hintText: 'الاسم كامل',
@@ -36,7 +36,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.email =
+                  context.read<OrderEntity>().shippingAddressEntity.email =
                       value!;
                 },
                 hintText: 'البريد الإلكتروني',
@@ -47,7 +47,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.address =
+                  context.read<OrderEntity>().shippingAddressEntity.address =
                       value!;
                 },
                 hintText: 'العنوان',
@@ -58,7 +58,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.city =
+                  context.read<OrderEntity>().shippingAddressEntity.city =
                       value!;
                 },
                 hintText: 'المدينه',
@@ -69,7 +69,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.floor =
+                  context.read<OrderEntity>().shippingAddressEntity.floor =
                       value!;
                 },
                 hintText: 'رقم الطابق , رقم الشقه ..',
@@ -80,7 +80,7 @@ class AddresInputSec extends StatelessWidget {
               ),
               CustomTextFormField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddressEntity!.phone =
+                  context.read<OrderEntity>().shippingAddressEntity.phone =
                       value!;
                 },
                 hintText: 'رقم الهاتف',

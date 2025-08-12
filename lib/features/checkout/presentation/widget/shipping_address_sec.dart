@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hup/core/utils/app_text_style.dart';
 import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
 import 'package:fruit_hup/features/checkout/presentation/widget/payment_item.dart';
-import 'package:fruit_hup/features/home/presentation/cubit/cart_cubit/cart_cubit_cubit.dart';
 
 class ShippingAddressSec extends StatelessWidget {
   const ShippingAddressSec({super.key, required this.pageController});
