@@ -1,4 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hup/core/helper_function/build_error_bar.dart';
@@ -16,6 +17,8 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
+  ValueNotifier<AutovalidateMode> valueNotifier =
+      ValueNotifier(AutovalidateMode.disabled);
 
   @override
   void initState() {
@@ -31,10 +34,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void dispose() {
     pageController.dispose();
+    valueNotifier.dispose();
     super.dispose();
   }
 
   int currentPageIndex = 0;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -48,23 +53,18 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             pageController: pageController,
           ),
           Expanded(
-            child: CheckOutStepsPageView(pageController: pageController),
+            child: CheckOutStepsPageView(
+              valueListenable: valueNotifier,
+              pageController: pageController,
+              formKey: _formKey,
+            ),
           ),
           CustomButton(
               oppressed: () {
-                if (context.read<OrderEntity>().payWithCash != null) {
-                  pageController.animateToPage(
-                    currentPageIndex + 1,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear,
-                  );
-                } else {
-                  buildCustomSnackBar(
-                    context,
-                    title: 'تحذير ⚠️',
-                    message: 'يرجى تحديد طريقة الدفع',
-                    contentType: ContentType.warning,
-                  );
+                if (currentPageIndex == 0) {
+                  _handleShippingSecValidation(context);
+                } else if (currentPageIndex == 1) {
+                  _handleAddressSecValidation(context);
                 }
               },
               text: getNextCurrentIndex(currentPageIndex)),
@@ -74,6 +74,36 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ],
       ),
     );
+  }
+
+  void _handleAddressSecValidation(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      pageController.animateToPage(
+        currentPageIndex + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.linear,
+      );
+    } else {
+      valueNotifier.value = AutovalidateMode.always;
+    }
+  }
+
+  void _handleShippingSecValidation(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      pageController.animateToPage(
+        currentPageIndex + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.linear,
+      );
+    } else {
+      buildCustomSnackBar(
+        context,
+        title: 'تحذير ⚠️',
+        message: 'يرجى تحديد طريقة الدفع',
+        contentType: ContentType.warning,
+      );
+    }
   }
 
   String getNextCurrentIndex(int index) {

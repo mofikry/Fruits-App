@@ -1,3 +1,5 @@
+import 'package:fruit_hup/core/repo/order_repo/order_repo.dart';
+import 'package:fruit_hup/core/repo/order_repo/order_repo_impl.dart';
 import 'package:fruit_hup/core/repo/prodact_repo.dart';
 import 'package:fruit_hup/core/repo/prodact_repo_impl.dart';
 import 'package:fruit_hup/core/services/database_services.dart';
@@ -21,4 +23,6 @@ void setupGetIt() {
       ));
   getIt.registerLazySingleton<ProdactRepo>(
       () => ProdactRepoImpl(databaseServices: getIt<DatabaseServices>()));
+  getIt.registerLazySingleton<OrderRepo>(
+      () => OrderRepoImpl(getIt<DatabaseServices>()));
 }

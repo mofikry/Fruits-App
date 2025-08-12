@@ -5,7 +5,6 @@ import 'package:fruit_hup/core/widget/constatns.dart';
 
 import 'package:fruit_hup/core/services/shared_preferences.dart';
 import 'package:fruit_hup/core/utils/app_images.dart';
-import 'package:fruit_hup/features/auth/presentation/view/login_view.dart';
 import 'package:fruit_hup/features/home/presentation/views/main_view.dart';
 import 'package:fruit_hup/features/on_bording/presentation/view/on_boarding_view.dart';
 

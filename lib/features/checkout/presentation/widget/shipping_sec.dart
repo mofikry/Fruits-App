@@ -15,6 +15,7 @@ class _ShippingSecState extends State<ShippingSec>
   int seclectedIndex = -1;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var orderEntity = context.read<OrderEntity>();
     return Column(
       children: [
@@ -47,6 +48,5 @@ class _ShippingSecState extends State<ShippingSec>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }
