@@ -4,7 +4,7 @@ import 'package:fruit_hup/core/helper_function/get_user.dart';
 import 'package:fruit_hup/core/repo/order_repo/order_repo.dart';
 import 'package:fruit_hup/core/services/get_it.dart';
 import 'package:fruit_hup/core/widget/custom_app_bar_body.dart';
-import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
+import 'package:fruit_hup/features/checkout/domain/entites/paypal_payment_entity/order_entity.dart';
 import 'package:fruit_hup/features/checkout/domain/entites/shipping_adress_entity.dart';
 import 'package:fruit_hup/features/checkout/presentation/cubit/check_out_cubit_cubit.dart';
 import 'package:fruit_hup/features/checkout/presentation/widget/checkout_view_body.dart';
@@ -27,7 +27,7 @@ class CheckoutView extends StatelessWidget {
         body: Provider.value(
             value: OrderEntity(
               shippingAddressEntity: ShippingAdressEntity(),
-              uId: getUser().uId,
+              uId: getUser().id,
               cartEntity,
             ),
             child: CheckoutViewBody()),

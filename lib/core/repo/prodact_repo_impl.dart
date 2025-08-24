@@ -14,7 +14,7 @@ class ProdactRepoImpl extends ProdactRepo {
   Future<Either<Failure, List<ProductEntity>>> getAllProdact() async {
     try {
       var data = await databaseServices.getData(
-          path: BackendEndpoint.Product,
+          path: BackendEndpoint.product,
           query: {
             'limit': 10,
             'orderBy': 'sellingCount',
@@ -33,7 +33,7 @@ class ProdactRepoImpl extends ProdactRepo {
   Future<Either<Failure, List<ProductEntity>>> getBestSelleingProdact() async {
     try {
       var data = await databaseServices.getData(
-        path: BackendEndpoint.Product,
+        path: BackendEndpoint.product,
         query: {'limit': 10, 'orderBy': 'sellingCount', 'descending': true},
       ) as List<Map<String, dynamic>>;
       List<ProductEntity> prodacts =

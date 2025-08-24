@@ -1,7 +1,7 @@
 class BackendEndpoint {
-  static const String addUserData = 'user';
-  static const String getUserData = 'user';
-  static const String isExist = 'user';
-  static const String Product = 'products';
+  static const String addUserData = 'users';
+  static const String getUserData = 'users';
+  static const String isExist = 'users';
+  static const String product = 'products';
   static const String addOrder = 'orders';
 }

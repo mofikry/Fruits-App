@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fruit_hup/core/repo/order_repo/order_repo.dart';
-import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
+import 'package:fruit_hup/features/checkout/domain/entites/paypal_payment_entity/order_entity.dart';
 
 part 'check_out_cubit_state.dart';
 

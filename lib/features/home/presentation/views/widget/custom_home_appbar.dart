@@ -16,7 +16,7 @@ class CustomHomeAppBar extends StatelessWidget {
       title: Text('صباح الخير !..',
           style: AppTextStyles.regular16.copyWith(color: AppColors.gray300)),
       subtitle: Text(
-        getUser().name,
+        'سعدنا برجوعك',
         style: AppTextStyles.semiBold16.copyWith(color: Colors.black),
       ),
     );

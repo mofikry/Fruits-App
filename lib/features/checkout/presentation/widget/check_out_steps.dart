@@ -2,7 +2,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hup/core/helper_function/build_error_bar.dart';
-import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
+import 'package:fruit_hup/features/checkout/domain/entites/paypal_payment_entity/order_entity.dart';
 import 'package:fruit_hup/features/checkout/presentation/widget/step_item.dart';
 
 class CheckOutSteps extends StatelessWidget {

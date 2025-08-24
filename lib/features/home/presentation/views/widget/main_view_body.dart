@@ -13,7 +13,11 @@ class MainViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return IndexedStack(
       index: currentViewIndex,
-      children: [HomeView(), ProductsView(), CartView()],
+      children: [
+        HomeView(),
+        ProductsView(),
+        CartView(),
+      ],
     );
   }
 }

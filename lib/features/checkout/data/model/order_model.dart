@@ -1,6 +1,6 @@
 import 'package:fruit_hup/features/checkout/data/model/order_product_model.dart';
 import 'package:fruit_hup/features/checkout/data/model/shipping_address_model.dart';
-import 'package:fruit_hup/features/checkout/domain/entites/order_entity.dart';
+import 'package:fruit_hup/features/checkout/domain/entites/paypal_payment_entity/order_entity.dart';
 import 'package:fruit_hup/features/home/domain/entites/cart_item_entity.dart';
 
 class OrderModel {
@@ -20,7 +20,7 @@ class OrderModel {
 
   factory OrderModel.fromEntity(OrderEntity orderEntity) => OrderModel(
         payment: orderEntity.payWithCash! ? 'cash' : 'paypal',
-        price: orderEntity.cartEntity.totalPrice(),
+        price: orderEntity.cartEntity.totalPrice() + 40,
         uId: orderEntity.uId,
         shippingAdressModel:
             ShippingAdressModel.fromEntity(orderEntity.shippingAddressEntity),
@@ -33,8 +33,8 @@ class OrderModel {
   toJson() {
     return {
       'price': price,
-      'uId': uId,
-      'shippingAdressModel': shippingAdressModel.toJson(),
+      'uid': uId,
+      'shippingadressmodel': shippingAdressModel.toJson(),
       'orderProductModelList':
           orderProductModelList.map((e) => e.toJson()).toList(),
       'payment': payment,

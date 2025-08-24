@@ -1,28 +1,34 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hup/features/auth/domain/entites/user_entity.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' show User;
 
 class UserModel extends UserEntity {
   UserModel({
     required super.email,
-    required super.name,
-    required super.uId,
+    required super.displayName,
+    required super.id,
   });
 
-  factory UserModel.fireBaseUser(User user) => UserModel(
+  factory UserModel.fromSupabaseUser(User user) => UserModel(
         email: user.email ?? 'no-email',
-        name: user.displayName ?? 'مستخدم بدون اسم',
-        uId: user.uid,
-      );
-  factory UserModel.fromjson(Map<String, dynamic> json) => UserModel(
-        email: json['email'],
-        name: json['name'],
-        uId: json['uId'],
+        displayName: user.userMetadata?['displayName'] ?? 'مستخدم بدون اسم',
+        id: user.id,
       );
 
-    factory UserModel.fromEntity(UserEntity user) => UserModel(
-        email: user.email,
-        name: user.name,
-        uId: user.uId,
+  factory UserModel.fromjson(Map<String, dynamic> json) => UserModel(
+        email: json['email'],
+        displayName: json['displayName'],
+        id: json['id'],
       );
-        toMap() => {'email': email, 'name': name, 'uId': uId};
+
+  factory UserModel.fromEntity(UserEntity user) => UserModel(
+        email: user.email,
+        displayName: user.displayName,
+        id: user.id,
+      );
+
+  Map<String, dynamic> toMap() => {
+        'email': email,
+        'displayName': displayName,
+        'id': id, // استخدام id
+      };
 }
